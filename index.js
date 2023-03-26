@@ -296,11 +296,15 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 ÖRNEK: fenomenGonderimSayisi(fenomenler, 'Will Smith') çağrıldığında "136" dönmelidir
 */
 
-function fenomenGonderimSayisi(/*kod*/){
-  /*kod*/
-}
+function fenomenGonderimSayisi(dizi, profilAdi){
+  for(let i = 0; i < dizi.length; i++) {
+    if (dizi[i]["profile"] === profilAdi){
+      return dizi[i]["posts"];
+    };
+  };
+};
 
-
+console.log(fenomenGonderimSayisi(fenomenler, "Will Smith"));
 
 /* Görev 9:
 Aşağıdakileri yapmak için platformaGoreCokGonderiYapanFenomen'ni kullanın:
@@ -313,9 +317,47 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 Örnek: platformaGoreCokGonderiYapanFenomen(fenomenler, 'TikTok') çağrıldığında "charli damelio" dönmelidir
 */
 
-function platformaGoreCokGonderiYapanFenomen(/*kod*/){
-  /*kod*/
-}
+// for in loopu ile array içinde objeye gir prounu çöz her platform adı için döngü yap
+
+
+const liste = [];
+
+function nelerOluyor(verilenPlatfrom){
+for (let i = 0; i < fenomenler.length; i++){
+for( let key in fenomenler[i]){
+  if(fenomenler[i][key] === verilenPlatfrom){
+      liste.push(fenomenler[i]);
+  };
+};
+};
+return liste;
+};
+console.log("havalı", nelerOluyor("Twitter"))
+
+
+
+function platformaGoreCokGonderiYapanFenomen(dizi, platformAdi){
+  const yeniListe = dizi;
+  console.log(yeniListe.length);
+  for(let i = ((yeniListe.length) - 1); i > -1 ; i--){
+    if(yeniListe[i]["posts"] === "NA" ){
+      yeniListe.splice((i),1);
+    }
+  };
+  console.log(yeniListe.length);
+  let a = 0;
+  let b;
+  for(let i = 0; i < yeniListe.length; i++){
+    if(yeniListe[i]["platform"] === platformAdi && a < yeniListe[i]["posts"]){
+      a = yeniListe[i]["posts"];
+      b = yeniListe[i]["profile"];
+    };
+  };
+  return b;
+};
+
+console.log("son", platformaGoreCokGonderiYapanFenomen(fenomenler, 'Twitter'));
+
 
 
 
