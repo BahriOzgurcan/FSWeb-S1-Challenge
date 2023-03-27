@@ -190,7 +190,7 @@ Aşağıdakileri yapmak için profilListesi'ni kullanın:
 */
 
 function profilListesi(dizi) {
-  const yeniDizi = [];
+  const yeniDizi =Array.from(dizi);
   for (let i = 0; i < dizi.length; i++) {
     yeniDizi.push(dizi[i].profile);
   };
@@ -226,8 +226,9 @@ Aşağıdakileri yapmak için fenomenSil'i kullanın:
 
 ÖRNEK: fenomenSil işlevi fenomenler dizisi ve 0 indeks sayısı ile çağrılırsa, veri kümemizden 'Instagram' kaldırılmış olarak döndürür. */
 
+
 function fenomenSil(dizi, a) {
-  const yeniDizi = dizi;
+  const yeniDizi = [... dizi];
 yeniDizi.splice(a, 1);
 return yeniDizi;
 };
@@ -252,7 +253,7 @@ Aşağıdakileri yapmak için fenomenEkle'i kullanın:
 ÖRNEK: fenomenEkle(fenomenler, 6, "Workintech", 10000000, 2022, "Instagram") çağrıldığında dizinin sonuna yukarıdaki nesne en sona eklenerek yeni fenomenler dizisini döndürmelidir. */
 
 function fenomenEkle(dizi, a, b, c, d, e) {
-  const yeniDizi = dizi;
+  const yeniDizi = Array.from(dizi);
   const yeniObj = {};
   yeniObj.number = a;
   yeniObj.profile = b;
@@ -317,12 +318,12 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 Örnek: platformaGoreCokGonderiYapanFenomen(fenomenler, 'TikTok') çağrıldığında "charli damelio" dönmelidir
 */
 
-// for in loopu ile array içinde objeye gir prounu çöz her platform adı için döngü yap
 
+/* platformdanListeOlustur for ... in kullanarak arrayin icindeki objelerin ozelligine gore yeni dizi olusturuyor. */
 
 const liste = [];
 
-function nelerOluyor(verilenPlatfrom){
+function platformdanListeOlustur(verilenPlatfrom){
 for (let i = 0; i < fenomenler.length; i++){
 for( let key in fenomenler[i]){
   if(fenomenler[i][key] === verilenPlatfrom){
@@ -332,7 +333,7 @@ for( let key in fenomenler[i]){
 };
 return liste;
 };
-console.log("havalı", nelerOluyor("Twitter"))
+console.log("Platform unlulerini iceren filtrelenmis liste", platformdanListeOlustur("Twitter"))
 
 
 
