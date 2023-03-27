@@ -190,10 +190,11 @@ Aşağıdakileri yapmak için profilListesi'ni kullanın:
 */
 
 function profilListesi(dizi) {
-  const yeniDizi =Array.from(dizi);
+  const yeniDizi = [];
   for (let i = 0; i < dizi.length; i++) {
     yeniDizi.push(dizi[i].profile);
   };
+  console.log(yeniDizi);
   return yeniDizi;
 };
 
